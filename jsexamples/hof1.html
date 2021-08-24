@@ -32,7 +32,12 @@
         var mobiles = filter(products, isMobile);
         forEach(mobiles, console.log);
 
-        
+        function toDiv(product) {
+            return "<div class=\"card\">"+ product.name + "</div>";
+        }
+
+        var divs = map(products, toDiv);
+        forEach(divs, console.log);
     </script>
 </body>
 

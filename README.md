@@ -385,6 +385,199 @@ Commonly used HOF:
 	to get aggregate on data ==> sum(), avg(), max(), count() ==> single value from collection
 * forEach
 
+============================
+ 
+HOF ==> functions returning a function ==> Closure
+
+function greeting(msg) {
+	return function(name) {
+		return msg + " " + name;
+	}
+}
+
+// closure is a concept where a returned function can access all the members of outer function
+
+var gm = greeting("Good morning"); // gm has a refernce to "msg" and "greeting" funciton ==> closure
+gm("Rahul"); 
+
+
+greeting("Good morning")("Rahul"); // Currying
+
+f(x)(y)(z);
+
+=================================
+
+Closure can be used in Memoize design pattern
+
+Memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+getProduct(4);
+	==> REST API call to Spring Boot ==> MySQL database server ==> returned value ==> convert to JSON ==> return JSON
+
+getProduct(5);
+	==> REST API call to Spring Boot ==> MySQL database server ==> returned value ==> convert to JSON ==> return JSON
+
+getProduct(4);
+	==>  get from cache
+
+=======================================
+
+JavaScript version ==> ECMA ==> JS 5
+
+ES2015 ==> ES 6 and ESNext 
+
+https://caniuse.com/
+
+ES 2015/ ES6 or ES Next ===> transpile / transcompile ==> ES 5 version
+
+* Babel
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript that can be run by older JavaScript engines. 
+
+* Tracuer
+
+=================
+
+ES2015/ ES 6 features:
+
+1) Block level scope variables and constant [ let , const]
+
+var g = 100; // global variable
+const PI = 3.14159; 
+function doTask() {
+	var a = 10;
+	if( g > a) {
+		let b = 20; // scope is within the block
+		c = 30;
+	}
+
+	console.log(g, a, b, c); // b is not visible
+}
+
+doTask();
+
+====================================
+
+2) Arrow functions
+
+let add = (x, y) => {
+	return x + y;
+}
+
+or
+
+let add = (x, y) => x + y;
+
+ var evens = filter(data, function (d) { return d % 2 === 0; });
+
+ var evens = filter(data, d => d % 2 === 0);
+ 
+
+Default values:
+
+let add = (x = 0, y = 0, z = 0) => x + y + z;
+
+add();
+add(10);
+add(4,5);
+add(5,2,1);
+
+==========================
+
+3) Destructuring and spread operator [ ... ]
+
+3.1) array
+
+var colors = ["red","green","blue","orange"];
+
+ES5 way:
+var r = colors[0];
+var g = colors[1];
+
+ES6 way:
+
+var [r, g, ...other] = colors;
+
+console.log(r); // red
+console.log(other); // ["blue","orange"]
+
+
+3.2) object
+var p = {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"};
+
+ES 5 way:
+console.log(p.name);
+
+var {name, price} = p;
+console.log(name); // iPhone
+
+========================
+
+4) Clone
+
+var p = {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"};
+
+var ref = p; // reference
+
+ref.name = "OnePlus";
+
+p.name ==> "OnePlus";
+
+Clone
+
+var copy = {...p};
+copy.name = "Samsung";
+
+var data = [6,8,1];
+
+var copyelem = [...data]; // copy
+
+===================================================
+
+5) Promise API
+	A promise represents the eventual result of an asynchronous operation. ==> Future
+
+	Synchronous function:
+
+	var res = doTask(); // blocking code ==> execute on stack
+	console.log(res); // line executes only after doTask() complete
+
+	If doTask() was returning a eventual result [resolved / rejected] ==> Promise
+
+	doTask().then(
+		(data) => code for resolved,
+		(err) => code for rejected
+	)
+
+	console.log("done"); // doesn't wait for promise to complete
+
+
+fetch("https://jsonplaceholder.typicode.com/users")
+	.then(response => response.json())
+	.then(data => console.log(data));
+
+=====================	
+
+Promise.all() ==> use case ==> Aggregator application ==> Make My Trip ==> Promise ==> Hotel 
+Promise ==> Airline
+Result which has hotel and air fares
+
+Promise.any() ==> use case ==> multiple servers have same data [ CDN ] ==> interested in first response
+
+=============================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

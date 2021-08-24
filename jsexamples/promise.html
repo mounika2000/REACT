@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function doTask() {
+            return new Promise( (resolved, rejected) => {
+                setTimeout(() => {
+                    // resolved("All done!!!");
+                    rejected("Boom :-(")
+                }, 2000);
+            });
+        }
+
+        doTask().then(
+            (res) => console.log(res),
+            (rej) => console.log("Error :" , rej)
+        );
+        console.log("Bye!!!");
+
+    </script>
+</body>
+</html>

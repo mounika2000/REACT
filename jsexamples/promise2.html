@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function doTask() {
+            return new Promise( (resolved, rejected) => {
+                setTimeout(() => {
+                    resolved("All done!!!");
+                }, 2000);
+            });
+        }
+
+        function doAnotherTask() {
+            return new Promise( (resolved, rejected) => {
+                setTimeout(() => {
+                    resolved("I am another task");
+                }, 1000);
+            });
+        }
+        // console.time("a");
+        // Promise.all([doTask(), doAnotherTask()]).then(values => {
+        //     console.log(values[0], values[1]);
+        //     console.timeEnd("a");
+        // });
+
+        Promise.any([doTask(), doAnotherTask()]).then(value => console.log(value));
+        
+        console.log("Bye!!!");
+
+    </script>
+</body>
+</html>
