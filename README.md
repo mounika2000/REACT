@@ -223,7 +223,6 @@ Person.prototype.getId = function() {
 }
 
 
-
 var p1 = new Person(10, "Smitha");
 
 var p2 = new Person(34, "Hema");
@@ -250,6 +249,7 @@ var add = new Function("x", "y", "return x + y"); // inherits from "Object"
 
 	XML vs JSON
 
+	// singleton
 	var product = {
 		"id": 1,
 		"name" : "iPhone",
@@ -336,7 +336,9 @@ If we use "use strict"; ==> concept of default going to "global context" will fa
 
 JSON, function prototype, call / apply , bind 
 
-=====================================================================
+=================================================================================
+
+
 
 
 

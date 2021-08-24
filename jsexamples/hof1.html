@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="lib.js"></script>
+
+    <script>
+
+        var data = [4, 5, 7, 8, 2, 55];
+
+        var products = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }
+        ];
+
+        var evens = filter(data, function (d) { return d % 2 === 0; });
+        forEach(evens, console.log);
+
+        function isMobile(p) {
+            return p.category === 'mobile';
+        }
+
+        var mobiles = filter(products, isMobile);
+        forEach(mobiles, console.log);
+
+        
+    </script>
+</body>
+
+</html>
