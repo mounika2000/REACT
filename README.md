@@ -337,6 +337,55 @@ If we use "use strict"; ==> concept of default going to "global context" will fa
 JSON, function prototype, call / apply , bind 
 
 =================================================================================
+Functional style of programming ==> functions which are not tightly coupled to state of object
+
+High Order function ==> HOF
+* functions which accept other functions as arguments ==> all callbacks are implemented
+* functions which return a function
+* ==> treat functions as first class members just like primitive and object
+
+var data = [4,5,7,8,2,55];
+
+var products = [	
+    	{"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+    	{"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+    	{"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+    	{"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+      	{"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}
+  ]
+for(var i = 0; i < data.length; i++) {
+	console.log(data[i]);
+}
+
+for(var i = 0; i < data.length; i++) {
+	alert(data[i]);
+}
+
+--
+HOF:
+function forEach(elems, action) {
+	for(var i = 0; i < elems.length; i++) {
+		action(elems[i]);
+	}
+}
+
+
+forEach(data, console.log);
+forEach(products, console.log);
+forEach(data, alert);
+
+==========================================
+
+Commonly used HOF:
+* filter
+	to get a subset based on predicate function
+* map
+	to transform data
+* reduce
+	to get aggregate on data ==> sum(), avg(), max(), count() ==> single value from collection
+* forEach
+
+
 
 
 
