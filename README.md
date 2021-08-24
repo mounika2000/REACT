@@ -131,6 +131,8 @@ console.log(add(4,5)); // ? ==> undefined
 
 JS stack, callback queue, Web Api, event loop
 
+timed() and clicked() are callback functions:
+
 console.log("Hello");
 
 setInterval(function timed() {
@@ -144,9 +146,197 @@ $("#btn").click(function clicked() {
 console.log("Bye!!!");
 
 =========================================
-Tea Break:
 
-Resume @ 11:20 
+In JavaScript functions are data types
+
+var name = "Shyam";
+
+var fn = function() {}; 
+
+// anonymous function
+
+setInterval(function () {
+	console.log("Timed!!!");
+}, 100);
+
+==============================
+
+OOP with JS
+
+-------------
+
+Object has state and behaviour
+
+Account instance/object will have "balance" ==> state; credit() and debit() are behaviour/action/methods of Account
+
+
+1) Object function to create a Object
+
+var obj = new Object();
+
+"new" keyword to create object
+
+Object(); // calling a function which exectes on "Global Context"
+
+new Object(); // create its own context [ it gets its own "this" pointer; won't take "this ==> window"]
+
+obj.x = 10; //state
+obj.y = 15; // state
+
+obj.print = function() {
+	console.log(this.x + "," + this.y);
+}
+
+
+obj.print(); // context is "obj"; within "print() "this" refers to "obj"
+
+2) Function constructor pattern
+
+function Person(id, name) {
+	this.id = id;
+	this.name = name;
+}
+
+
+var p1 = new Person(10, "Smitha");
+
+var p2 = new Person(34, "Hema");
+
+======================
+
+2.1) adding methods to function constructor
+
+
+
+function Person(id, name) {
+	this.id = id; // state
+	this.name = name; // state
+}
+
+// adding methods ==> behaviour
+Person.prototype.getName = function() {
+	return this.name;
+}
+
+Person.prototype.getId = function() {
+	return this.id;
+}
+
+
+
+var p1 = new Person(10, "Smitha");
+
+var p2 = new Person(34, "Hema");
+
+p2.getName();
+
+p1.getName();
+
+
+======================================
+
+function add(x, y) {
+	return x + y;
+}
+
+var add = new Function("x", "y", "return x + y"); // inherits from "Object"
+
+==========================================
+
+
+3) JSON ==> JavaScript Object Notation  {}
+
+	==> generally used as a representation of data which will be a part of payload between client <==> server
+
+	XML vs JSON
+
+	var product = {
+		"id": 1,
+		"name" : "iPhone",
+		"price" : 89000.00
+	};
+
+	key / instance variable / field ==> string
+	value can be string, number, boolean, function, array, undefined, null, object
+
+
+array of products:
+
+	[	
+    	{"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+    	{"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+    	{"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+    	{"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+      	{"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}
+    ]
+
+=====================================
+
+* bind() method
+
+var product = {
+		"id": 1,
+		"name" : "iPhone",
+		"price" : 89000.00,
+		"getName" : function() {
+			return this.name;
+		}
+	};
+
+	product.getName(); // iPhone
+
+
+var ref = product.getName; // product context is not taken; hence refers to window when "this" is used
+
+ref();  // this.name ==> window.name
+
+var cref = product.getName.bind(product); // bind context also
+
+cref(); // this ==> product
+
+
+var person = {
+	"name" : "Geetha"
+}
+
+var pref =  product.getName.bind(person);
+pref(); // Geetha
+
+
+================
+
+function update(name) {
+	this.name = name;
+}
+
+var product = {
+		"id": 1,
+		"name" : "iPhone",
+		"price" : 89000.00,
+		"getName" : function() {
+			return this.name;
+		}
+};
+
+
+var person = {
+	"name" : "Geetha"
+}
+
+update.call(person, "Rita"); // changes person.name to "Rita" ==> context is "person"
+
+update.call(product, "Pixel"); // context is "product" ==> within update -=> "this" refers to "product"
+
+=========
+
+If we use "use strict"; ==> concept of default going to "global context" will fail
+
+
+===========================================================================================
+
+JSON, function prototype, call / apply , bind 
+
+=====================================================================
 
 
 
