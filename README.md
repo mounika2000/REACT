@@ -553,7 +553,8 @@ var copyelem = [...data]; // copy
 
 fetch("https://jsonplaceholder.typicode.com/users")
 	.then(response => response.json())
-	.then(data => console.log(data));
+	.then(data => console.log(data))
+	.catch( err => console.log(err));
 
 =====================	
 
@@ -566,13 +567,138 @@ Promise.any() ==> use case ==> multiple servers have same data [ CDN ] ==> inter
 =============================
 
 
+6) async and await ==> easy way to use Promise API
+
+==========
+
+7) Generator
+	are functions which can return multiple values 
+
+	function* mySaga() {
+		console.log("task 1");
+		console.log("task 2");
+
+		yield "first output";  
+		
+		console.log("task 3");
+		console.log("task 4");
+		console.log("task 5");
+
+		yield 100; // return 
+
+		console.log("task 6");
+
+		yield "bye!!"
+	}
+
+	var iter = mySaga();
+	iter.next(); {done:false, value: "first output"}
+	...
+	iter.next();  {done:false, value: 100}
+	...
+	iter.next();  {done:false, value: "bye"}
+
+	iter.next(); { done: true, value : undefined}
+
+============
+
+8) Class and ES 6 Module ==> cover along with Webpack
+
+9) template literal ==> string
+
+var name = "Harry";
+var program = "React";
+
+var msg = `<div class="card">
+
+Hello ${name}
+Welcome to ${program}
+</div>
+`;
+
+Traditional ES 5 way:
+
+msg = "<div class='card'> Hello" + name + "Welcome to " + "program" + "</div>"
+
+=================================
 
 
+ES 5 Module System using IIFE
+IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined
+
+(function() { 
+	// code
+})();
 
 
+let productModule = (function() {
+	var data = 100; // private within the module
+	function doTask() {
+		console.log(data);
+		someTask();
+	}
+
+	function someTask() { // private
+		console.log("some task!!!");
+	}
+	return {
+		doTask
+	}
+})();
+
+productModule.doTask(); // 100
+
+productModule.data; // not visible
+productModule.someTask(); // not visible
 
 
+let orderModule =  (function() {
+	var data = 999; // private within the module
+	function print() {
+		console.log(data);
+	}
+	function doTask() {
+	}
+	return {
+		printInfo : print,
+		doTask 
+	}
+)();
 
+orderModule.printInfo(); // 999
+orderModule.doTask();
+
+
+=============================
+
+DOM ==> Document Object Model ==> language independent tree of objects created from XML / HTML
+
+
+document is the root object
+
+1) access dom element using ID
+<div id="tmpl-header"></div>
+
+document.getElementById("tmpl-header");
+
+document.getElementById("tmpl-header").remove()
+
+2) access dom element by tag name
+
+<section></section>
+
+document.getElementsByTagName("section")
+
+
+3) access dom element by class name
+
+document.querySelectorAll("classname")
+document.querySelector(".hero-item-image")
+
+querySelector and querySelectorAll can be used to get DOM elements by ID, tagName, class name, attribute
+
+
+============================================
 
 
 
