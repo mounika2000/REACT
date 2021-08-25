@@ -943,5 +943,118 @@ let product = {
 
 product.getName();
 
-==========
+==============================
+
+DOM and jQuery
+
+BackBone, Handlebars, Mustache, .... <== jQuery will be useful
+
+===================================================
+
+Node.Js
+
+Node.js is an open-source and cross-platform JavaScript runtime environment.
+
+Refer: nodejs.svg
+
+Where can i use NodeJS?
+1) Web applications run on client machine
+	a) Developers may choose to write the code in "ES2015" / TypeScript / LiveScript / CoffeeScript /DART
+		Browsers needs ES5.
+		NODEJS platform can be used to transcompile  [ Babel / TSC]
+			"ES2015" / TypeScript / LiveScript / CoffeeScript /DART to ==> ES5
+
+	b) Bundle my files to avoid including multiple scripts in html
+			without bundling
+
+				index.html
+					<script src="products.js"></script>
+					<script src="productlist.js"></script>
+					<script src="cart.js"></script>
+					<script src="customer.js"></script>
+					<script src="login.js"></script>
+
+				minimum 100+ such files in project
+				==> 100+ network calls from browser to server	
+				---
+				Solution is bundle files 
+
+				<script src="vendor.js"></script> <!-- REACt library, jQuery, lodash, ... -->
+				<script src="bundle.js"></script> <!-- all our UI components -->
+
+				NODEJS platform can be used to bundle
+
+		c) Run tests [ unit testing / E2E testing]
+		d) Minifiy ==> reduce file size be removing empty spaces
+		e) Uglify ==> bignames to shorterform [ function ProductConstructor() ==> function p()]
+
+2) To build APIs 
+	build and run server applications to serve ==> JSON
+	2.1) RESTful Web services ==> Express.JS
+	2.2) GraphQL Web Service ==> Apollo
+3) Real time application
+	3.1) Streaming of data [ OTT] ==> Netflix, Prime, HBO, Disney + Hotstar
+	3.2) Chatbots
+	3.3) Realtime update of Dashboard [ Admin Dashboard / Stock prices/ ...]
+
+Don't use it for ==> CPU intense operations and blocking code [ RDBMS interaction ]
+
+=========================================
+IIFE (function() { })();
+
+Node.JS uses CommonJS module system
+
+exports and require()
+
+============================
+
+NODE JS project
+
+myapp>npm init --y
+
+NPM ==> Node Package Manager same as PIP / Maven
+
+* download dependencies from repository into "node_modules" folder
+* publish module
+* run scripts
+
+YARN is an alternate to NPM
+
+=====================================
+npm i lodash
+
+ "dependencies": {
+    "lodash": "^4.17.21"
+  }
+
+    "lodash": "^4.17.21" ==> version 4.17.21 and above
+
+		"lodash": "4.17.21"    ==> exact version
+
+		"lodash": "~4.17.21" ==> major version has to be "4"; minor and patch can be anything
+
+
+Team member:
+npm i
+
+
+===
+
+
+npm i -D mocha chai request
+ package.json
+ 
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.0",
+    "request": "^2.88.2"
+  }
+
+=====================================
+
+
+Resume @ 4:00
 
