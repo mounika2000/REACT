@@ -803,22 +803,18 @@ Event Handling: ==> when an event occurs we want a callback to execute [ handler
 
 DOM elements generate events
 
-click ==>	The event occurs when the user clicks on an element
+click :	The event occurs when the user clicks on an element
 
-change =>	The event occurs when the content of a form element, the selection, or the checked state have changed 
-				(for <input>, <select>, and <textarea>)
+change :	The event occurs when the content of a form element, the selection, or the checked state have changed 
+				(for input, select, and <textarea>)
 
-
-
-focus	=> The event occurs when an element gets focus
+focus	= The event occurs when an element gets focus
 
 
 
-blur =>	The event occurs when an element loses focus
+blur =	The event occurs when an element loses focus
 
-
-
-load	=> The event occurs when an object has loaded [ document loaded we need to perfom some task]
+load	= The event occurs when an object has loaded [ document loaded we need to perfom some task]
 
 
 
@@ -828,11 +824,11 @@ keydown	The event occurs when the user is pressing a key
 keyup	The event occurs when the user releases a key
 keypress	The event occurs when the user presses a key
 
-mousedown	=> The event occurs when the user presses a mouse button over an element
-mouseup	=> The event occurs when a user releases a mouse button over an element
-mouseover	=> The event occurs when the pointer is moved onto an element, or onto one of its children
-mouseenter =>	The event occurs when the pointer is moved onto an element
-mouseleave =>	The event occurs when the pointer is moved out of an element
+mousedown	= The event occurs when the user presses a mouse button over an element
+mouseup	= The event occurs when a user releases a mouse button over an element
+mouseover	= The event occurs when the pointer is moved onto an element, or onto one of its children
+mouseenter =	The event occurs when the pointer is moved onto an element
+mouseleave =	The event occurs when the pointer is moved out of an element
 
 =======
 
