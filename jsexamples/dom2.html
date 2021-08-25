@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Value 1 <input type="number" id="t1" /> <br />
+        Value 2 <input type="number" id="t2" /> <br />
+        Answer <input type="text" id="ans" /> <br />
+        <button id="addbtn" type="button">Add</button>
+        <button id="subbtn" type="button">Sub</button>
+       <script>
+           function handler (evt) {
+                let v1 = document.getElementById("t1").value;
+                let v2 = document.getElementById("t2").value;
+                if(evt.target.id === "addbtn") {
+                    var result = parseFloat(v1) + parseFloat(v2);
+                } else {
+                    var result = parseFloat(v1) - parseFloat(v2);
+                }
+                document.getElementById("ans").value = result;
+            };
+            document.getElementById("addbtn").addEventListener("click", handler);
+            document.getElementById("subbtn").addEventListener("click", handler);
+        </script>
+    </form>
+</body>
+</html>

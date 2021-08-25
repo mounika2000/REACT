@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .del {
+            background-color: blanchedalmond;
+            color: cadetblue
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyid">
+
+        </tbody>
+    </table>
+    <script>
+        var products = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }];
+        
+        let tbody = document.getElementById("tbodyid");
+        products.forEach(p => {
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
+            let name = document.createTextNode(p.name);
+            td.append(name);
+            tr.append(td);
+
+            td = document.createElement("td");
+            let price = document.createTextNode(p.price);
+            td.append(price);
+            tr.append(td);
+
+            td = document.createElement("td");
+            let del = document.createElement("button");
+            del.setAttribute("class", "del");
+            del.innerText = "Delete";
+            td.append(del);
+            tr.append(td);
+            tbody.append(tr);
+        });
+
+        document.querySelectorAll(".del").forEach( button => {
+            button.addEventListener("click", (event) => {
+                if(confirm("Do you want to delete "+ event.target.parentNode.parentNode.children[0].innerText)) {
+                    event.target.parentNode.parentNode.remove();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

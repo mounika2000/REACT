@@ -701,6 +701,137 @@ querySelector and querySelectorAll can be used to get DOM elements by ID, tagNam
 ============================================
 
 
+HTML and CSS ==> w3school
+
+Bubling:
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+
+<form onclick="alert('form')">FORM
+  <div onclick="alert('div')">DIV
+    <p onclick="alert('p')">P</p>
+  </div>
+</form>
+
+========
+
+    
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+========
+Capturing
+
+
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+
+<form>FORM
+  <div>DIV
+    <p>P</p>
+  </div>
+</form>
+
+<script>
+  for(let elem of document.querySelectorAll('*')) {
+    elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
+    elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+  }
+</script>
+
+
+ =============
+
+ Day 2
+
+Recap: JS, Context, Event loop and callback, variable hoisting, OOP, bind, call, Functional style of Programming with HOF,
+Closure, ES2015, DOM
+
+BOM ==> Browser Object Model ==> Window, History, Address, History
+
+DOM ==> Document Object Model ==> tree of objects from XML or HTML
+
+document ==> is the root element
+
+1) document.getElementById("id of element")
+2) document.getElementsByTagName("element"); // array of elements
+3) document.querySelector("id, tag, class, attributes")
+	document.querySelectorAll("tag, class, attributes")
+
+==================
+
+document.createElement
+
+document.createElement() method creates the HTML element specified by tagName
+let element = document.createElement(tagName[, options]);
+
+let elem = document.createElement("button");
+
+<button></button>
+
+
+let newContent = document.createTextNode("Hi there and greetings!");
+
+elem.append(newContent);
+
+
+<button>Hi there and greetings!</button>
+
+===================
+	
+document.getElementById("someid").innerText = "Hello"
+
+let txt = document.getElementById("someid").innerText
+
+document.getElementById("someid").innerHTML = "<p><bold>Hello</bold></p>";
+
+====================
+
+Event Handling: ==> when an event occurs we want a callback to execute [ handler]
+
+DOM elements generate events
+
+click ==>	The event occurs when the user clicks on an element
+
+change =>	The event occurs when the content of a form element, the selection, or the checked state have changed 
+				(for <input>, <select>, and <textarea>)
+
+focus	=> The event occurs when an element gets focus
+
+blur =>	The event occurs when an element loses focus
+
+load	=> The event occurs when an object has loaded [ document loaded we need to perfom some task]
+
+
+Low Level events:
+keydown	The event occurs when the user is pressing a key
+keyup	The event occurs when the user releases a key
+keypress	The event occurs when the user presses a key
+
+mousedown	=> The event occurs when the user presses a mouse button over an element
+mouseup	=> The event occurs when a user releases a mouse button over an element
+mouseover	=> The event occurs when the pointer is moved onto an element, or onto one of its children
+mouseenter =>	The event occurs when the pointer is moved onto an element
+mouseleave =>	The event occurs when the pointer is moved out of an element
+
+=======
+
+target.addEventListener() sets up a function that will be called whenever the specified event is delivered to the target.
+
+
+
 
 
 
