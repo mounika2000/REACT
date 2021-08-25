@@ -808,11 +808,19 @@ click ==>	The event occurs when the user clicks on an element
 change =>	The event occurs when the content of a form element, the selection, or the checked state have changed 
 				(for <input>, <select>, and <textarea>)
 
+
+
 focus	=> The event occurs when an element gets focus
+
+
 
 blur =>	The event occurs when an element loses focus
 
+
+
 load	=> The event occurs when an object has loaded [ document loaded we need to perfom some task]
+
+
 
 
 Low Level events:
@@ -1056,5 +1064,42 @@ npm i -D mocha chai request
 =====================================
 
 
-Resume @ 4:00
+Unit testing in JavaScript
 
+Unit Testing libraries ==> Jasmine, Mocha, JEST
+
+Angular ==> Angular Test Bed ==> built on Jasmine 
+
+React ==> React Testing Library ==> built on JEST
+
+Mocha ==> good for server api
+
+======= 
+
+Chai ==> Assertion library  https://www.chaijs.com/
+
+
+Testing AAA ==> Assemble [ Test Suite], Action [ add(4,5), click on button], Assertion [ expect result to be 9]
+
+
+
+
+ it("server handles add", (done) => {
+        request('http://localhost:3000/add?x=100&y=10', (error, response, body) => {
+            var expected = "1410";
+            expect(expected).to.be.equal(body);
+            done();
+        })
+  })
+
+
+  JEST Framework
+
+  let fn = jest.fn(); // mock
+
+  it("server ,,", (fn) => ..)
+
+
+  expect(fn).to.be.called(1).time()
+
+  =========
