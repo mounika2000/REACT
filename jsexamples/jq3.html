@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+  
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+     <script>
+         $(function() {
+            let users = [];
+            let tbody = $("#tbody");
+            $.getJSON("https://jsonplaceholder.typicode.com/users", data => {
+                users = data;
+                users.forEach(user => {
+                    let tr = $("<tr/>");
+                    let td = $("<td/>");
+                    td.text(user.username);
+                    tr.append(td);
+
+                    td = $("<td/>");
+                    td.text(user.email);
+                    tr.append(td);
+
+                    td = $("<td/>");
+                    td.html("<button type='button' class='btn btn-success'>Get Info</button>");
+                    tr.append(td);
+                    tbody.append(tr);
+                })
+            });
+            $(document).on("mouseover", ".btn", function()  {
+                let username = $(this).parent().parent().children().first().text();
+                $.getJSON(`https://jsonplaceholder.typicode.com/users?username=${username}`, data => {
+                    let user = data[0];
+                    $("#info").html(user.name + "<br/>" + user.company.name);
+                })
+            })
+         });
+     </script>
+</head>
+<body>
+    <div class="container">
+        <div id="info" style="width: 200px; height: 100px; border: solid red 2px"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+</body>
+</html>

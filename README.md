@@ -831,15 +831,117 @@ mouseleave =>	The event occurs when the pointer is moved out of an element
 target.addEventListener() sets up a function that will be called whenever the specified event is delivered to the target.
 
 
+=======================
+
+jQuery Document Ready function
+
+// this function gets called only after DOM tree is created
+ ==> it's a callback gets invoked when document .onload event is triggred
+
+$(function() {
+	// event handling code
+});
+
+===========
+
+<ul id="destinations">
+
+</ul>
+
+document.getElementById("destinations");
+
+$("#destinations"); ==> # by id
+
+$(".del"); ==> . by class
+
+$("p"); ==> tag name
 
 
+ $("<div/>"); ==> create div
+
+ $("div"); // get all divs
+
+ ===========
+ Bootstrap CSS Framework
+
+ Bootstrap grid system ==> row, col
+
+ Bootstrap ==> card
+
+ Bootstrap ==> navbar, forms
+
+ =================================
 
 
+ AJAX ==> Asynchronous JavaScript API for XML / JSON
+
+ Ajax allows you to update parts of the DOM of an HTML page instead without the need for a full page refresh. 
 
 
+ JS ==> XMLHttpRequest
+
+ jQuery simplified using XMLHttpRequest
+
+ ================================
+ Event Handler:
+
+<button id="btn">Click</button>
+
+$("#btn").on("click", () => {
+
+})
 
 
+<button class=".del">Delete</button>
+
+$(".del").on("click", () => {
+
+});
 
 
+// eventual created object
+$(document).on("click", ".del", () => {
 
+})
+
+========
+
+Arrow function context:
+
+ 
+let product = {
+	"name": "TestProduct",
+	 "getName" : function() {
+	 	return this.name; ==> this ==> product
+	 }
+} 
+
+product.getName();
+
+====
+
+let product = {
+	"name": "TestProduct",
+	 "getName" : () => {
+	 	return this.name; // window ==> not product
+	 }
+} 
+
+product.getName(); // gets the context from execution scope
+
+=========
+
+
+let product = {
+	"name": "TestProduct",
+	 "getName" : function() {
+	 						setTimeout(() => {
+	 								console.log(this.name);
+						}, 100)
+	}
+} 
+
+product.getName();
+
+==========
 
