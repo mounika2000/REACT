@@ -1180,6 +1180,95 @@ Webpack example:
 
 npm i -D html-webpack-plugin
 
+Configure HTMLWebpackPlugin to be used ==> webpack.config.js
 
+ const HTMLWebpackPlugin = require('html-webpack-plugin'); // installed module
+const path = require('path'); // node module
 
+module.exports = {
+    plugins : [
+        new HTMLWebpackPlugin({
+            template: path.resolve("C:\Users\banup\Desktop\Adobe_web\REACT\webpackexample\", "src", "index.html")
+        })
+    ]
+}
+
+npm run dev
+check dist/index.html
+has "main.js" script <-- HtmlWebpackPlugin will include this 
+
+9) webpack-dev-server
+
+Use webpack with a development server that provides live reloading.
+
+bundled code is added to index.html by HtmlWebpackPlugin
+we need to run the "index.html" on server
+
+==> in actual production code ==> npm run prod ==> what's there in "dist" folder should be placed aon actual web server 
+[ Apache, IIS, Nginx , along with Jetty / Tomcat ==> Spring Boot]
+
+webpack-dev-server ==> is a light weight server suitable for testing not real world server ==> not for production
+
+npm install webpack-dev-server -D
+
+https://www.npmjs.com/package/webpack-dev-server
+
+=========================================
  
+<link rel="stylesheet" href="style.css">
+
+
+10) css-loader and style-loader
+
+The css-loader interprets @import will resolve them.
+
+index.js
+
+import "./styles/style.css";
+
+Product.js
+import "./Product.css";
+
+Customer.js
+import "./Customer.css";
+
+style-loader
+
+It's recommended to combine style-loader with the css-loader
+
+Automatically injects styles into the DOM using one <style></style>.
+
+npm i -D css-loader style-loader
+
+
+============
+
+11) ES2015 / ES 6 ==> ES5
+
+Transcompile:==> Babel 
+
+
+npm i @babel/core babel-loader @babel/preset-env -D
+
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript
+
+@babel/preset-es2015
+
+@babel/preset-react ==> JSX
+
+webpack.config.js
+
+ {
+    test : /\.js$/,
+    use: "babel-loader",
+    exclude :/node_modules/
+ }
+
+CommonJS module system:
+module.exports and "require"
+
+
+ES6 Module system:
+uses "export" and "import"
+
+

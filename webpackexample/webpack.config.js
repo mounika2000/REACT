@@ -2,6 +2,19 @@ const HTMLWebpackPlugin = require('html-webpack-plugin'); // installed module
 const path = require('path'); // node module
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                test : /\.js$/,
+                use: "babel-loader",
+                exclude :/node_modules/
+            }
+            ,{
+                test : /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
+    },
     plugins : [
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
