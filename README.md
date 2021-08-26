@@ -1455,12 +1455,74 @@ function ProductList({title, products}) {
               products.map(p => <h2> {p.name} </h2>)
           }
     </div>
-}
+ }
 
 ReactDOM.render(<ProductList title="Product List" products={data}/> , document.getElementById("root"))
 
 
 =====================
+
+note: we should have single root element ==> JSX
+
+
+==================
+
+* props ==> data passed from parent to child
+
+* class Component
+
+state and behaviour
+// extends ==> inheritance ==> Specialization 
+
+ class Product extends React.Component {
+	state = {
+			product: {"id":1,"name":"iPhone"}
+	};
+
+	render() {
+		return <div>
+					{this.state.product.name} <br />
+         <button type="button" onClick={this.doTask}>Click</button>
+		</div>
+	}
+  
+  doTask() {
+    console.log("Hello!!!")
+  }
+}
+ReactDOM.render(<Product /> , document.getElementById("root"))
+
+
+=========
+class Product extends React.Component {
+	state = {
+			product: {"id":1,"name":"iPhone"}
+	};
+
+	render() {
+		return <div>
+					{this.state.product.name} <br />
+         <button type="button" onClick={() => this.doTask()}>Click</button>
+		</div>
+	}
+  
+  doTask() {
+    console.log(this.state.product.name)
+  }
+}
+ReactDOM.render(<Product /> , document.getElementById("root"))
+
+=============================
+
+
+<button type="button" onClick={this.doTask.bind(this)}>Click</button>
+OR
+<button type="button" onClick={() => this.doTask()}>Click</button>
+
+=================
+
+
+
 
 
 
