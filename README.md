@@ -1289,5 +1289,184 @@ Core Web Vitals:
 
   react-router-dom ==> Lazy loading
 
-  
+
+webpack.config.js
+
+ optimization: {
+        splitChunks: {chunks: "all", name: "vendor"}
+ }
+ 
+
+=======================================
+
+https://createapp.dev/
+
+==================================
+
+Webpack ==> Module bundler
+webpack.config.js ==> Plugins, loaders [ css-loader, Style-loader, babel-loader], optimization
+
+Babel ==> Transcompile
+
+============
+
+project ==> npm i
+
+==========================================
+
+
+React.js
+
+---------
+
+Rendering = data ==> Presentation
+
+* Server-Side Rendering
+
+data  was converted to presentation [ HTML / PDF / Image] on server and sent to client
+
+1) JSP, Themeleaf, Servlet ==> server side code in JAVA
+2) PHP
+3) ASP, ASP.NET ==> .NET on server side
+4) EJS, PUG, JADE ==> JavaScript for Server side
+
+* Web applications ==> Client Side Rendering
+
+data[ JSON/ XML / CSV] is sent to client machine and on client machine convert to presentation
+
+1) DOM
+2) jQuery Library
+3) Templates ==> Mustache, Handlebars, underscore
+
+Example:
+Data:
+
+{
+  person: {
+    firstname: "Yehuda",
+    lastname: "Katz",
+  },
+}
+
+
+Template: 
+<div class="card">
+	<div class="card-header">
+		{{person.firstname}} {{person.lastname}}
+</div>
+</div>
+
+4) Advanced View Libraries and Frameworks
+	==> JavaScript MVC ==> Can.js, Steal.js
+	==> Knockout
+	==> Backbone.js ==> MVC Framework ==> Model ==> data; Controller ==> UI interactions ; View ==> Template
+	==> Angular.js ==> Google ==> MVC [ Dirty Checking ] ==> 1.6 was the last version
+	==> React ==> View Library [ Virtual DOM ]
+	==> Angular ==> MVC Framework ==> Zone.js ==> version 2 ==> version 12
+
+SPA ==> Single Page Application ==> index.html
+* SEO
+	 http://adobe.com/products
+	 https://adobe.com/carriers
+* Data Binding	 
+* Secure your routes
+
+===========================
+
+React.js building blocks
+View Components == UI Components
+
+* createElement()
+* functional component
+* class component
+
+Register: codepen.io ==> Playground for React
+
+https://codepen.io/banuprakash/pen/oNwXNEE
+
+Behaviour: Save --> Off; preview --> off
+
+JavaScript Preprocessor:
+
+Babel ==> Babel includes JSX processing. [ React code uses JSX ]
+
+
+* createElement()
+
+Include:
+1) 
+https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js
+
+2)
+https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js
+
+<div id="root"></div>
+
+let Welcome = React.createElement("h1", {style: {'color':'red'}}, ' Welcome to React World!!!');
+
+// console.log(Welcome);
+
+ReactDOM.render(Welcome, document.getElementById("root"))
+
+=======================================================================
+
+Reconcillation ==> VDOM ==> DOM
+
+=========
+
+<div>
+   <h1>Welcome to React World </h1>
+</div>
+
+let Welcome = React.createElement("div", {style: {'color':'red'}}, React.createElement("h1", null,' Welcome to React World!!!'));
+
+
+* functional component
+	returns multiple react elements with one root element
+
+===================
+
+* props
+
+function Welcome(props) {
+  return <div>
+         <h1>
+            {props.msg} {props.trg}
+        </h1>
+    </div>
+}
+
+
+ReactDOM.render(<Welcome msg="Welcome to" trg="React Training"/>, document.getElementById("root"))
+
+==========
+
+ var data = [
+    {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+    {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+    {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+    {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+      {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+
+function ProductList({title, products}) {
+  return <div>
+           <h1>{title}</h1>
+            {
+              products.map(p => <h2> {p.name} </h2>)
+          }
+    </div>
+}
+
+ReactDOM.render(<ProductList title="Product List" products={data}/> , document.getElementById("root"))
+
+
+=====================
+
+
+
+
+
+
+
+
 

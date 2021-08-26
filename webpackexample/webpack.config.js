@@ -2,6 +2,9 @@ const HTMLWebpackPlugin = require('html-webpack-plugin'); // installed module
 const path = require('path'); // node module
 
 module.exports = {
+    devServer: {
+       port: 9000,
+    },
     module: {
         rules: [
             {
