@@ -1272,3 +1272,22 @@ ES6 Module system:
 uses "export" and "import"
 
 
+12) npm i lodash
+
+main.js includes ==> Person.js + math.js + styles.css + lodash.js
+
+3rd party libraries need to be seperated into another "chunk" file ==> Future we can optimize by lazy loading
+
+Core Web Vitals:
+ FCP problem 
+
+ optimization: {
+        splitChunks: {"chunks": "all", name: "vendor"}
+    }
+
+    chunks:"async" <== only lazy loaded module
+
+  react-router-dom ==> Lazy loading
+
+  
+

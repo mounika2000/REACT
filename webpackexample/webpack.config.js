@@ -15,6 +15,9 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        splitChunks: {chunks: "all", name: "vendor"}
+    },
     plugins : [
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
