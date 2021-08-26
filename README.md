@@ -1095,7 +1095,91 @@ Testing AAA ==> Assemble [ Test Suite], Action [ add(4,5), click on button], Ass
 
   it("server ,,", (fn) => ..)
 
+  expect(fn).to.be.called(1).times()
 
-  expect(fn).to.be.called(1).time()
+=========
 
-  =========
+Bootstrap; Arrow function Context
+
+============================
+
+Chrome ==> Chrome webstore ==> React DevTools and Redux DevTool
+
+
+=================================================
+
+ab -n 1000 -c 200 http://localhost:3000/add?"x=20&y=15"
+
+
+
+DAY 3
+
+JavaScript Build tools used in nodeJS environment: ==> Automate tasks
+Grunt, Gulp, Browserify, Webpack
+
+* Transcompiler ==> Babel, TSC [ Typescript Compiler], DART, CoffeeScript
+* Bundle
+* LINT ==> Static Code analysis;
+* test
+* uglify
+* minify
+
+
+ Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting. 
+
+Angular or React application development using Commmand line interface ==> comes with bundled webpack
+
+Test Vulnerabilites of NPM using: https://snyk.io/vuln/search?
+
+=====================
+npm init
+
+npm test
+
+npm start
+
+
+Webpack example:
+
+1) create a folder "webpackexample"
+
+2) webpackexample> npm init --y
+
+3) webpackexample>  npm i webpack webpack-cli -D
+
+4) mkdir src
+
+5) src/index.js with ==> console.log("Hello World!!!");
+
+6) package.json
+
+"scripts": {
+    "dev" : "webpack --mode development",
+    "prod" : "webpack --mode production"
+  }
+
+ 7) to run the scripts:
+
+ npm run dev
+ npm run prod
+
+ creates "dist/main.js"
+
+ 8) HTMLWebpackPlugin
+
+ The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation
+
+  vendor.js
+  bundle-hash.js
+  main-hash.js
+
+  30k + ==> seperate bundle
+
+ src/index.html
+<script src="main.js"></script>
+
+npm i -D html-webpack-plugin
+
+
+
+ 

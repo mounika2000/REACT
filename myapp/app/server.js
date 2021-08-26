@@ -10,8 +10,8 @@ let math = require('./math');
 // http://localhost:3000/sub?x=100&y=10
 
 let server = http.createServer( (request, response) => {
-    // let pathname = url.parse(request.url).pathname;
-    let pathname = url.URL(request.url).pathname
+    let pathname = url.parse(request.url).pathname;
+    // let pathname = url.URL(request.url).pathname
     let query = url.parse(request.url, true).query;
     if(pathname === "/add") {
         response.write(math.add(parseFloat(query["x"]), parseFloat(query["y"])).toString());
