@@ -1845,8 +1845,65 @@ render(<App/>); <== no UI; DOM in Memory is created ==> not visual
 npm test -- --coverage
 
 
+App.test.js
+-----------
+	Integration testing 
+	render(<App/>) ==> renders <CustomerList/> ==> <Filter /> also 6 <CustomerRow />
+
+	Unit testing
+	<CustomerRow />
+
+	render(<CustomerRow/>);
+
+	Mock fn as callback for deleteCustomer(id);
+
+	Mock data for Customer
+
+	<Filter />
+
+==============================================
+
+https://www.cypress.io/
+
+A complete end-to-end testing
 
 customerapp> npm i -D cypress
 
 =============================
+"scripts":
+ "cypress" : "cypress open"
 
+
+
+ =========
+
+ "e2e" folder ==> "customerdelete.spec.js" and "filter.spec.js"
+ cypress.json ==> configuration for "integrationFolder" and "test files extenstion"
+
+ package.json ==> scripts "cypress": "cypress open"
+
+ npm run cypress
+
+ <h1>Harry Potter </h1>
+
+ /Harry/i
+
+ /^Harry/i
+
+ /Potter$/i
+
+ https://www.javascripttutorial.net/javascript-regular-expression/
+
+
+=================================
+
+npx create-react-app phoneapp
+
+===============================================
+
+
+
+
+
+
+  
