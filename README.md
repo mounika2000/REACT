@@ -1524,11 +1524,200 @@ OR
 
 
 
+  state = {
+        "customers" :[{
+            "id": 1,
+            "firstName": "Rachel",
+            "lastName": "Green ",
+            "gender": "female",
+            "address": "Blore"
+        },
+        {
+            "id": 2,
+            "firstName": "Chandler",
+            "lastName": "Bing",
+            "gender": "male",
+            "address": "West Street"
+        },
+        {
+            "id": 3,
+            "firstName": "Joey",
+            "lastName": "Tribbiani",
+            "gender": "male",
+            "address": "Kattegat"
+        },
+        {
+            "id": 4,
+            "firstName": "Monica",
+            "lastName": "Geller",
+            "gender": "female",
+            "address": "some address"
+        },
+        {
+            "id": 5,
+            "firstName": "Ross",
+            "lastName": "Geller",
+            "gender": "male",
+            "address": "some address "
+        },
+        {
+            "id": 6,
+            "firstName": "Phoebe",
+            "lastName": "Buffay",
+            "gender": "female",
+            "address": "some address"
+        }
+    ]
+    };
+
+  =======================
+https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/
+https://reactjs.org/docs/faq-functions.html
+
+ 
+ Day 4
+
+* React.createElement()
+* functional component
+* class component ==> state and behaviour
+
+* JSX ==> JavaScript XML ==> Babel converts JSX into React.createElement()
+* we need to have root element
+
+function App() {
+	return <div>
+					<h1>Hello </h1>
+					<p>Good Day</p>
+				</div>
+}
+
+
+class Mycomponent extends React.Component {
+
+	render() {
+			return <div>
+
+
+			</div>
+	}
+}
+
+React.Fragment
+
+function App() {
+	return <React.Fragment>
+						<h1>Hello </h1>
+						<p>Good Day</p>
+				</React.Fragment>
+}
+
+OR
+
+function App() {
+	return <>
+						<h1>Hello </h1>
+						<p>Good Day</p>
+				</>
+}
+
+=================
+
+npx create-react-app customerapp
+
+NPM vs NPX
+
+NPM ==> Node package manager ==> download dependencies into "node_modules" folder or "global folder [ AppData/Roaming/npm]"
+
+npm i -g create-react-app 
+
+create-react-app customerapp
+
+NOW:
+npx create-react-app customerapp
+
+Scaffolding code: customerapp ==> project setup with built-in webpack config; App.js index.js ==> entry point
+
+==> Rendering code ..
+
+============================
+
+customerapp created with following dependencies:
+
+"dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  }
+
+React ==>  "react": "^17.0.2" 
+
+Rendering ==> "react-dom": "^17.0.2"
+
+Core Web Vitals for FCP , TTFB, LCP, CLS == "web-vitals": "^1.0.1"
+
+
+ "react-scripts": "4.0.3" ==> internally configured to run webpack 
 
 
 
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
 
 
 
+"start": "react-scripts start" same as "webpack serve --mode development"
+
+ "build": "react-scripts build" same as "webpack --mode production"
 
 
+ "eject": "react-scripts eject" ==> gets lowlevel configuration used by the project ==> webpack.config.js babel.config.json,
+ ... ==> once the project is ejected; ==> everythin you need to configure
+
+ ==================================
+
+
+ function App() {
+  return (
+    <div className="App">
+       Customer Application
+    </div>
+  );
+}
+
+OR
+
+function App() {
+  return <div className="App">
+       Customer Application
+    </div>
+}
+
+====
+
+REACT Css is applied using <div className="App">
+
+not <div class="App">	==> "class" is a keyword
+
+===============================
+
+
+
+<React.StrictMode> similar to <React.Fragment> ==> gives details about using un-safe [ life cycle ] code in React
+
+StrictMode is a tool for highlighting potential problems in an application. Like Fragment , StrictMode does not render any visible UI.
+
+
+Webpack ==> index.js ==> App.js ==> bundle.js HtmlWebpackPlugin ==> includes this in "index.html"
+
+
+=========
+
+Each child in a list should have a unique "key" prop.
