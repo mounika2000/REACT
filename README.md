@@ -1762,3 +1762,89 @@ customers ==> Monica Geller and Ross Geller
 txt ==> Bing
 
 filter from complete ==> Chandler Bing
+
+https://lodash.com/docs/4.17.15#debounce
+
+==============================================
+
+
+CustomerList
+CustomerRow
+Filter
+
+=========
+
+state = {
+	x: 100,
+	y:50,
+	z:30
+}
+
+
+
+this.setState({
+	y : 77
+})
+
+==> retain x and z value only y is updated
+
+===================================
+
+
+
+* Testing 
+
+* Unit testing
+==> Jasmine, Mocha and JEST
+==> do testing of React components
+==> React Testing Libary on top of JEST
+RTL adds additional assertion apis to test components
+
+* E2E testing 
+==> Cypress / Selenium 
+
+============
+
+React Testing library:
+
+access elements using :
+getByXXX() ==> throws exception if not found
+queryByXXX() ==> returns null if not found
+findByXXX() ==> Promise API => eventual component created ==> async creation ==> Server ==> component created based on response on server
+
+also use low level DOM apis 
+
+1) <button>...
+
+	getByRoleName("button") 
+
+	getAllByRoleName("button")  ==> all button
+
+	<input>
+	getByRoleName("input") 	
+
+
+2) <h1>Welcome to React</h1>
+
+getByText(/welcome/i);
+
+3) <input type="text" placeholder="search by name" >
+
+getByPlaceHolderText("search by name")
+
+
+
+
+ReactDOM.render(<App/>, ..); <== UI Component
+
+import { render, screen } from '@testing-library/react';
+
+render(<App/>); <== no UI; DOM in Memory is created ==> not visual
+
+==================
+
+
+customerapp> npm i -D cypress
+
+=============================
+
