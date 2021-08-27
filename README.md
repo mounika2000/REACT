@@ -1842,6 +1842,8 @@ import { render, screen } from '@testing-library/react';
 render(<App/>); <== no UI; DOM in Memory is created ==> not visual
 
 ==================
+npm test -- --coverage
+
 
 
 customerapp> npm i -D cypress

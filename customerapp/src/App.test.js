@@ -26,7 +26,7 @@ it("filter customers", () => {
   render(<App />);
   let txtBox = screen.queryByPlaceholderText("search by name");
   fireEvent.change(txtBox, {"target": {"value": "Geller"}});
-  screen.debug();
+  // screen.debug();
   var btns = screen.queryAllByRole("button");
   expect(btns.length).toBe(2);
 });

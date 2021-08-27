@@ -7,7 +7,8 @@ export default class CustomerRow extends Component {
         return (
             <div className="row">
                {customer.firstName} &nbsp; {customer.lastName} &nbsp; 
-               <button type="button" onClick={() => this.props.delEvent(customer.id)}>Delete</button>
+               <button type="button" 
+                onClick={() => this.props.delEvent(customer.id)}>Delete</button>
             </div>
         )
     }
