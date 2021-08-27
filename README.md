@@ -1721,3 +1721,44 @@ Webpack ==> index.js ==> App.js ==> bundle.js HtmlWebpackPlugin ==> includes thi
 =========
 
 Each child in a list should have a unique "key" prop.
+
+
+function CustomerRow(props) {
+
+}
+
+class CustomerRow extends Component {
+	constructor(props) {
+		super(props);
+	}
+}
+
+================
+
+
+
+6 customers
+
+txt ==> Geller
+
+customers ==> Monica Geller and Ross Geller
+
+txt ==> Bing
+
+tries to filter from customers ==> Monica Geller and Ross Geller
+
+==
+Solution ==> complete ==> immutable
+
+txt ==> Geller
+
+from "complete" list ==> customers
+
+
+customers ==> Monica Geller and Ross Geller
+
+
+
+txt ==> Bing
+
+filter from complete ==> Chandler Bing
