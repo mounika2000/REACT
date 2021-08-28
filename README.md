@@ -1902,8 +1902,228 @@ npx create-react-app phoneapp
 ===============================================
 
 
+Unit testing => RTL ==> Developer creates component ==> He should test it
+
+E2E ==> cypress 
+
+=====================
+
+Weekend task:
+web development assignment.zip
+
+place images in "public" folder
+<img src={{recipe.pic}} className="img" />
+
+==========================================
+
+1) Component LifeCycle
+
+2) shouldComponentUpdate()
+
+ class Child extends React.Component {
+	render() {
+		console.log("child renders");
+		return <h1> Child: {this.props.name} </h1>
+	}
+}
+
+class Parent extends React.Component {
+	state = {
+		count : 0,
+		name : "Banu"
+	}
+
+	render() {
+		console.log("Parent renders");
+		return <>
+				{this.state.count}, {this.state.name} <br />
+				<Child name={this.state.name} />
+				<button onClick={() => this.increment()}>Click</button>
+		</>
+	}
+	increment() {
+		this.setState({
+			count: this.state.count + 1
+		})
+	}
+}
+ReactDOM.render(<Parent /> , document.getElementById("root"))
 
 
+ ==================
 
 
-  
+  shouldComponentUpdate(nextProps, nextState) {
+    return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+  }
+
+  this.props < == existing props
+
+  nextProps < == new props comming from parent
+shouldComponentUpdate will be called before it updates this.props with nextProps
+
+
+=========
+
+class Child extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+  }
+	render() {
+		console.log("child renders");
+		return <h1> Child: {this.props.name} </h1>
+	}
+}
+
+class Parent extends React.Component {
+	state = {
+		count : 0,
+		name : "Banu"
+	}
+
+	render() {
+		console.log("Parent renders");
+		return <>
+				{this.state.count}, {this.state.name} <br />
+				<Child name={this.state.name} />
+				<button onClick={() => this.increment()}>Click</button>
+		</>
+	}
+	increment() {
+		this.setState({
+			count: this.state.count + 1
+		})
+	}
+}
+ReactDOM.render(<Parent /> , document.getElementById("root"))
+
+========================
+PureComponent will have shouldComponentUpdate() implmentation done, ok to use if props is simple type
+
+class Child extends React.PureComponent {
+  render() {
+		console.log("child renders");
+		return <h1> Child: {this.props.name} </h1>
+	}
+}
+
+=====================
+
+
+how to avoid re-rendering if its functional component
+
+function Child(props) {
+  	console.log("child renders");
+		return <h1> Child: {props.name} </h1>
+}
+
+class Parent extends React.Component {
+	state = {
+		count : 0,
+		name : "Banu"
+	}
+
+	render() {
+		console.log("Parent renders");
+		return <>
+				{this.state.count}, {this.state.name} <br />
+				<Child name={this.state.name} />
+				<button onClick={() => this.increment()}>Click</button>
+		</>
+	}
+	increment() {
+		this.setState({
+			count: this.state.count + 1
+		})
+	}
+}
+ReactDOM.render(<Parent /> , document.getElementById("root"))
+
+===
+
+Solution is use React.memo() an High Order Component
+
+const MemoChild = React.memo(Child);
+
+<MemoChild />
+
+What code could be there in React.memo()
+
+function memo(Child) {
+		if(nextProps... != props...) {
+				return Child.render();
+		} 
+		return;
+}
+
+===
+
+React.memo() example:
+
+function Child(props) {
+  	console.log("child renders");
+		return <h1> Child: {props.name} </h1>
+}
+
+const MemoChild = React.memo(Child);
+
+class Parent extends React.Component {
+	state = {
+		count : 0,
+		name : "Banu"
+	}
+
+	render() {
+		console.log("Parent renders");
+		return <>
+				{this.state.count}, {this.state.name} <br />
+				<MemoChild name={this.state.name} />
+				<button onClick={() => this.increment()}>Click</button>
+		</>
+	}
+	increment() {
+		this.setState({
+			count: this.state.count + 1
+		})
+	}
+}
+ReactDOM.render(<Parent /> , document.getElementById("root"))
+
+
+===============================================================================
+
+Reference
+
+class Parent extends React.Component {
+  emailRef = React.createRef(); 
+
+  state = {
+    email: ""
+  }
+	render() {
+	 
+		return <>
+				{this.state.email} <br />
+				<input type="text" ref={this.emailRef} />
+				<button onClick={() => this.getData()}>Click</button>
+		</>
+	}
+	getData() {
+		this.setState({
+			email: this.emailRef.current.value
+		})
+	}
+}
+ReactDOM.render(<Parent /> , document.getElementById("root"));
+
+========
+
+<input type="text" ref={input => {this.emailRef = input}} />
+
+
+=======
+
+phoneapp> npm i bootstrap styled-components react-router-dom
+
+==============
+
