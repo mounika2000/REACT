@@ -2104,7 +2104,7 @@ class Parent extends React.Component {
 	 
 		return <>
 				{this.state.email} <br />
-				<input type="text" ref={this.emailRef} />
+				<input type="text" ref={this.emailRef}  id="txt" />
 				<button onClick={() => this.getData()}>Click</button>
 		</>
 	}
@@ -2122,8 +2122,84 @@ ReactDOM.render(<Parent /> , document.getElementById("root"));
 
 
 =======
+npx create-react-app phoneapp
 
 phoneapp> npm i bootstrap styled-components react-router-dom
 
 ==============
 
+Day 5
+
+======
+
+<div className="row">
+
+  <div className="col-md-4">
+  		Menu
+  </div>
+  <div className="col-md-8">
+  		Display reciepes
+  </div>
+</div>
+
+<div className="row">
+  Ingredients
+</div>
+
+
+======================================
+
+
+React Context ==> React 16.3 version
+
+styled-components
+
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${props => props.primary ? "palevioletred" : "white"};
+  color: ${props => props.primary ? "white" : "palevioletred"};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+render(
+  <div>
+    <Button>Normal</Button>
+    <Button primary>Primary</Button>
+  </div>
+);
+
+===========================
+
+npm i react-router-dom
+
+react-router-dom
+
+Why Router API
+1) SPA ==> single Page Application ==> SEO
+	Different URLS should show different views
+
+	http://amazon.com/mobiles/iPhone
+	http://amazon.com/mobiles/Samsung
+
+	http://amazon.com/tvs
+	http://amazon.com/tvs/Sony
+
+	http://amazon.com/cart
+
+
+2) bookmark
+3) Navigation between views [ Back and forward is between views and not different websites]
+4) should be be able to protect some Routes
+	http://amazon.com/cart ==> should allow access only to users who have logged in
+5) Lazy load components
+
+=====================
+
+
+http://localhost:3000/
+
+https://notepad.pw/72w26nrw
