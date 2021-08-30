@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import CartList from './CartList';
+import { ProductContext } from './Context';
 
-export default class Cart extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Cart!!!</h1>
-            </div>
-        )
-    }
+export default function Cart() {
+    let productContext = React.useContext(ProductContext); // React Hook
+    return (
+        <div className="container">
+            {
+                productContext.cart.map(p => <CartList product={p} key={p.id}/>)
+            }
+        </div>
+    )
 }

@@ -26,6 +26,12 @@ class ProductProvider extends Component {
         })
     }
 
+    // increment = (id) => {
+        //
+    //}
+
+    
+
     addToCart = (id) => {
         // console.log(id + " added to cart!!!");
         let prds = this.state.cart;
