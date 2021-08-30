@@ -4,7 +4,9 @@ import {Button} from './Button';
 
 export default function CartList(props) {
     let {id, img, price, count, total} = props.product;
+   
     return (
+        <>
         <div className="row">
             <div className="col-md-2">
                 <img src={img} style={{"width":"50px"}} />
@@ -25,5 +27,7 @@ export default function CartList(props) {
                 total : {total}
             </div>
         </div>
+        
+        </>
     )
 }

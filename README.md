@@ -2275,4 +2275,64 @@ Product.js and Context.js
 
  id is pathparam
 
- 
+ ================
+
+ http://localhost:3000/cart
+
+ Cart.js ==> ProductList
+ 	==> get cart from context
+ 	==> based on products present in "cart" render CartList ==> Product
+
+ ===========================================================
+
+Complete "increment() and decrement()"
+1) Context.js add these 2 and expose
+2) Cartlist ==> productContext to consume and assign to Button
+
+======================================
+JSON Server : full fake REST API with zero coding
+https://github.com/typicode/json-server
+
+db.json
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
+
+CRUD operations supports
+
+http://server/posts
+http://server/comments
+http://server/posts/1
+
+
+where "data.json" resides
+phoneapp> npx json-server --watch data.json --port 1234
+
+
+http://localhost:1234/products
+http://localhost:1234/products/3
+http://localhost:1234/customers
+http://localhost:1234/orders
+
+=======================================
+
+npm i axios
+
+https://www.npmjs.com/package/axios
+
+headers: {'Authorization': 'Bearer: tokenvalue'} ==> JWT Token
+
+=============
+
+
+* React Hooks
+* State Management using Redux
+
+======================================
+
