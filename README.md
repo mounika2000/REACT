@@ -2203,3 +2203,65 @@ Why Router API
 http://localhost:3000/
 
 https://notepad.pw/72w26nrw
+
+Server Side Routing: ==> request to server
+<a href="page"></a>
+
+Client side Routing ==> uses react-router-dom:
+<Link to="/page">
+
+========
+
+App.js ==> React-router-dom
+index.js ==> include bootstrap
+
+share.zip:
+
+1) Replace App.css  from share.zip
+2) Replace Navbar.js from share.zip
+3) place Button.js from share.zip in "components" folder
+
+==> Check usage of Styled-components in Button.js and "Link" from react-router-dom [Navbar.js]
+
+=======================================
+
+1) index.html:
+google fonts 
+and
+fontawesome ==> icons
+
+
+2) index.js
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+3) App.css has some styling done
+
+4) App.js ==> configured ==> react-router-dom ==> BrowserRouter as Router, Switch, Route
+
+5) Navbar.js ==> Bootstrap navbar + Link for React-router-dom + Button Styled components
+
+6) Button.js is a styled-component
+
+=======
+
+7) copy data.js into "src" folder
+
+8) copy "img" folder from "share.zip" into "public" 
+
+==========================================
+9) 
+React Context:
+Context.js
+
+============
+
+3rd Party components:
+https://www.primefaces.org/primereact
+https://www.telerik.com/kendo-react-ui/
+
+https://material-ui.com/components/
+
+======================================
+
+
+
