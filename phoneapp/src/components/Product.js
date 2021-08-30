@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Button} from './Button';
 import { ProductConsumer } from './Context';
+import { Link } from 'react-router-dom';
 
 export default class Product extends Component {
     render() {
@@ -14,7 +15,9 @@ export default class Product extends Component {
                               value => {
                                   return (
                                     <>
+                                    <Link to = {`details/${id}`}>
                                     <img src={img} className="card-img-top" />
+                                    </Link>
                                     {
                                         inCart? <Button className="cart-btn">InCart</Button>:<Button className="cart-btn fa fa-cart-plus" onClick={() => value.addToCart(id)}></Button>
                                     }

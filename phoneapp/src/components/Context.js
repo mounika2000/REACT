@@ -11,6 +11,9 @@ class ProductProvider extends Component {
     componentDidMount() {
         this.setProducts();
     }
+    getDetails = (id) => {
+        return this.state.products.filter(p => p.id === id)[0];
+    }
 
     setProducts = () => {
         let prds = [];
@@ -24,9 +27,10 @@ class ProductProvider extends Component {
     }
 
     addToCart = (id) => {
-        console.log(id + " added to cart!!!");
-        let prd = this.state.products.filter(p => p.id === id)[0];
+        // console.log(id + " added to cart!!!");
         let prds = this.state.cart;
+
+        let prd = this.state.products.filter(p => p.id === id)[0];
         prd.inCart = true;
         prd.count = 1;
         prd.total = prd.price;
@@ -38,8 +42,12 @@ class ProductProvider extends Component {
 
     render() {
         return (
-            <ProductContext.Provider value={{...this.state,
-            addToCart: this.addToCart}}>
+            <ProductContext.Provider value={
+                {
+                    ...this.state,
+                    addToCart: this.addToCart,
+                    getDetails: this.getDetails
+                }}>
                 {this.props.children}
             </ProductContext.Provider>
         )

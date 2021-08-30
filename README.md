@@ -2264,4 +2264,15 @@ https://material-ui.com/components/
 ======================================
 
 
+React Development Tools chrome extension
 
+
+Product.js and Context.js
+
+===========
+
+ /details/:id
+
+ id is pathparam
+
+ 
